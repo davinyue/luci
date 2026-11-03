@@ -14,21 +14,22 @@ if nixio.fs.access("/lib/modules/" .. kernel_version .. "/xt_FLOWOFFLOAD.ko") th
 sw_flow = s:option(Flag, "sw_flow", translate("Software flow offloading"))
 sw_flow.default = 0
 sw_flow.description = translate("Software based offloading for routing/NAT")
-if nixio.fs.access("/lib/modules/" .. kernel_version .. "/mtkhnat.ko") then
-sw_flow:depends("hw_flow", 0)
-else
 sw_flow:depends("sfe_flow", 0)
-end
 end
 
 if luci.sys.call("cat /etc/openwrt_release | grep -Eq 'filogic|mt762' ") == 0 then
 hw_flow = s:option(Flag, "hw_flow", translate("Hardware flow offloading"))
 hw_flow.default = 0
-hw_flow.description = translate("Requires hardware NAT support. Implemented at least for mt762x")
-if nixio.fs.access("/lib/modules/" .. kernel_version .. "/mtkhnat.ko") then
-hw_flow:depends("sw_flow", 0)
-else
+hw_flow.description = translate("Requires hardware NAT support, implemented at least for mt762x")
 hw_flow:depends("sw_flow", 1)
+end
+
+if luci.sys.call("cat /etc/openwrt_release | grep -Eq 'mediatek' ") == 0 then
+if nixio.fs.access("/lib/modules/" .. kernel_version .. "/mt7915e.ko") then
+hw_wed = s:option(Flag, "hw_wed", translate("MTK WED WO offloading"))
+hw_wed.default = 0
+hw_wed.description = translate("Requires hardware support, implemented at least for Filogic 8x0")
+hw_wed:depends("hw_flow", 1)
 end
 end
 
@@ -47,11 +48,12 @@ bbr_cca.default = 0
 bbr_cca.description = translate("Using BBR CCA can improve TCP network performance effectively")
 end
 
-if nixio.fs.access("/lib/modules/" .. kernel_version .. "/xt_FULLCONENAT.ko") then
-fullcone_nat = s:option(Flag, "fullcone_nat", translate("FullCone NAT"))
+fullcone_nat = s:option(ListValue, "fullcone_nat", translate("FullCone NAT"))
 fullcone_nat.default = 0
+fullcone_nat:value("0", translate("Disable"))
+fullcone_nat:value("1", translate("Compatible Mode"))
+fullcone_nat:value("2", translate("High Performing Mode"))
 fullcone_nat.description = translate("Using FullCone NAT can improve gaming performance effectively")
-end
 
 if nixio.fs.access("/usr/sbin/pdnsd") or nixio.fs.access("/usr/bin/dnsforwarder") or nixio.fs.access("/usr/bin/dnsproxy") then
 dns_caching = s:option(Flag, "dns_caching", translate("DNS Caching"))

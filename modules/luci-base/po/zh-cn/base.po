@@ -257,20 +257,14 @@ msgstr "额外的 HOSTS 文件"
 msgid "Disable IPv6 DNS forwards"
 msgstr "禁止解析 IPv6 DNS 记录"
 
+msgid "Disable IPv4 DNS forwards"
+msgstr "禁止解析 IPv4 DNS 记录"
+
 msgid "Filter IPv6(AAAA) DNS Query Name Resolve"
 msgstr "过滤掉 IPv6(AAAA) ，只返回 IPv4 DNS 域名记录"
 
-msgid "Disable HTTPS DNS Type forwards"
-msgstr "禁止解析 HTTPS 类型的记录"
-
-msgid "Filter HTTPS DNS Query Type Name Resolve"
-msgstr "过滤掉 HTTPS 类型65的查询 ，避免iOS设备绕过常规DNS服务"
-
-msgid "Disable Unknown DNS Type forwards"
-msgstr "禁止解析 Unknown 类型的记录"
-
-msgid "Filter Unknown DNS Query Type Name Resolve"
-msgstr "过滤掉 Unknown 未知类型的查询"
+msgid "Filter IPv4(A) DNS Query Name Resolve"
+msgstr "过滤掉 IPv4(A) ，只返回 IPv6 DNS 域名记录"
 
 msgid "Minimum TTL to send to clients"
 msgstr "客户端缓存的最小 DNS TTL"
@@ -1414,6 +1408,9 @@ msgstr "主机到期超时"
 msgid "Host-<abbr title=\"Internet Protocol Address\">IP</abbr> or Network"
 msgstr "主机 <abbr title=\"Internet Protocol Address\">IP</abbr> 或网络"
 
+msgid "Host-Uniq tag content"
+msgstr "Host-Uniq 标签内容"
+
 msgid "Hostname"
 msgstr "主机名"
 
@@ -1527,6 +1524,15 @@ msgstr "IPv6 后缀"
 
 msgid "IPv6-Address"
 msgstr "IPv6 地址"
+
+msgid "Remote IPv6 address"
+msgstr "远程 IPv6 地址"
+
+msgid "Encapsulation limit"
+msgstr "封装限制"
+
+msgid "When delegating prefixes to multiple downstreams, interfaces with a higher preference value are considered first when allocating subnets."
+msgstr "将前缀委派给多个下游时，在分配子网时，将首先考虑具有较高优先级值的接口。"
 
 msgid "IPv6-PD"
 msgstr "IPv6-PD"
@@ -2617,6 +2623,9 @@ msgstr "Radius 认证密钥"
 
 msgid "Radius-Authentication-Server"
 msgstr "Radius 认证服务器"
+
+msgid "Raw hex-encoded bytes. Leave empty unless your ISP require this"
+msgstr "原始 16 进制编码的字节。除非您的运营商要求，否则请留空"
 
 msgid ""
 "Read <code>/etc/ethers</code> to configure the <abbr title=\"Dynamic Host "
@@ -3882,7 +3891,7 @@ msgid "overlay"
 msgstr "覆盖"
 
 msgid "random"
-msgstr ""
+msgstr "随机"
 
 msgid "relay mode"
 msgstr "中继模式"
@@ -4118,6 +4127,77 @@ msgstr "已标记"
 msgid "untagged"
 msgstr "未标记"
 
-msgid "Logo"
-msgstr "图标"
+msgid "Compatible Mode"
+msgstr "兼容模式"
 
+msgid "High Performing Mode"
+msgstr "高性能模式"
+
+msgid "Target Platform"
+msgstr "目标平台"
+
+msgid "Beacon Interval"
+msgstr "Beacon 间隔"
+
+msgid "Kick STA Threshold"
+msgstr "弱信号剔除阈值"
+
+msgid "STA Assoc Threshold"
+msgstr "弱信号接入阈值"
+
+msgid "Designated master"
+msgstr "指定为主接口"
+
+msgid "Set this interface as master for RA and DHCPv6 relaying as well as NDP proxying."
+msgstr "将此接口设为 RA 和 DHCPv6 中继以及 NDP 代理的主接口。"
+
+msgid "High"
+msgstr "高"
+
+msgid "Low"
+msgstr "低"
+
+msgid "Very Low"
+msgstr "非常低"
+
+msgid "auto"
+msgstr "自动"
+
+msgid "Target Wake Time"
+msgstr "目标唤醒时间（TWT）"
+
+msgid "MU-MIMO DL"
+msgstr "下行 MU-MIMO"
+
+msgid "MU-MIMO UL"
+msgstr "上行 MU-MIMO"
+
+msgid "OFDMA DL"
+msgstr "下行 OFDMA"
+
+msgid "OFDMA UL"
+msgstr "上行 OFDMA"
+
+msgid "A-MSDU"
+msgstr "MSDU聚合（A-MSDU）"
+
+msgid "Auto Block ACK"
+msgstr "自动块确认"
+
+msgid "U-APSD"
+msgstr "U-APSD 省电模式"
+
+msgid "Kick low RSSI station threshold"
+msgstr "弱信号剔除阈值"
+
+msgid "Station associate threshold"
+msgstr "弱信号接入阈值"
+
+msgid "Wireless HWNAT"
+msgstr "无线硬件加速"
+
+msgid "Wireless configuration error"
+msgstr "无线网络设置错误"
+
+msgid "At least one MBSSID needs to be reserved"
+msgstr "至少需要保留1个MBSSID"
